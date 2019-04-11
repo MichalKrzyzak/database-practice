@@ -1,5 +1,10 @@
 package com.myproject.dbpractice.student;
 
+/**
+ * Created by Michał Krzyżak
+ * 11.4.2019
+ **/
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,5 +1,10 @@
 package com.myproject.dbpractice;
 
+/**
+ * Created by Michał Krzyżak
+ *  11.4.2019
+ **/
+
 import com.myproject.dbpractice.student.Student;
 import com.myproject.dbpractice.teacher.Teacher;
 
