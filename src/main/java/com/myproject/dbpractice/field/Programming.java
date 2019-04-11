@@ -9,7 +9,7 @@ import javax.persistence.Id;
  **/
 
 @Entity
-public class Astronomy {
+public class Programming {
     @Id
     private long numberOfStudents;
     private long numberOfTeachers;

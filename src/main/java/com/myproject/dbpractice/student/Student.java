@@ -5,15 +5,12 @@ package com.myproject.dbpractice.student;
  * 11.4.2019
  **/
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Student {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(columnDefinition = "VARCHAR(25) NOT NULL")
     private String firstName;

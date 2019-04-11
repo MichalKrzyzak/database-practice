@@ -5,16 +5,13 @@ package com.myproject.dbpractice.teacher;
  * 11.4.2019
  **/
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 public class Teacher {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(columnDefinition = "VARCHAR(25) NOT NULL")
     private String firstName;
