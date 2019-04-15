@@ -1,5 +1,7 @@
 package com.myproject.dbpractice;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -9,23 +11,26 @@ import java.util.Scanner;
 
 public class UI {
     public void run() {
-        Scanner userInput = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Welcome to University of Java!");
-        String userChoice;
+        String userInput = "";
 
         do {
-            System.out.println("Please pick one function to continue:\n1 - Add student\n2 - Add teacher\n3 - Add field\n4 - Add department\nEnter \"exit\" or \"q\" to quit.");
-            userChoice = userInput.nextLine().toLowerCase();
             try {
-                if (!(userChoice.equals("exit") || userChoice.equals("q"))) {
-                    UIModel uiModel = new UIModel(userChoice);
+                System.out.println("Please pick one function to continue:\n1 - Add student\n2 - Add teacher\n3 - Add field\n4 - Add department\nIf you want to generate data please add \"generate\" after number. If not, please add \"manual\" after number.\nEnter \"exit\" or \"q\" to quit.");
+                userInput = input.nextLine().toLowerCase();
+
+                if (!(userInput.equals("exit") || userInput.equals("q"))) {
+                    List<String> userInputList = Arrays.asList(userInput.split("[-, ]"));
+                    UIModel uiModel = new UIModel(userInputList.get(0), userInputList.get(1));
                     new UIController(uiModel);
                 } else {
                     System.out.println("Exiting...");
                 }
-            } catch (NullPointerException e) {
+            } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Wrong input!");
             }
-        } while (!(userChoice.equals("exit") || !userChoice.equals("q")));
+
+        } while (!(userInput.equals("exit") || !userInput.equals("q")));
     }
 }

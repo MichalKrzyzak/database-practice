@@ -1,5 +1,7 @@
 package com.myproject.dbpractice;
 
+import com.myproject.entities.Create;
+
 /**
  * Created by Michał Krzyżak
  * 15.4.2019
@@ -10,10 +12,10 @@ class UIController {
 
     UIController(UIModel model) {
         this.model = model;
-        parseUserChoice();
+        createObjects();
     }
 
-    private void parseUserChoice() {
-        new ChoiceParser().parseUsersChoice(model.getUserChoice());
+    private void createObjects() {
+        new Create().verifyCreation(model.getUserChoice(), model.isGenerated());
     }
 }

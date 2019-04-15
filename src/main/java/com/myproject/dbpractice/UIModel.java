@@ -7,12 +7,18 @@ package com.myproject.dbpractice;
 
 class UIModel {
     private String userChoice;
+    private String generate;
 
-    UIModel(String userChoice) {
+    UIModel(String userChoice, String generate) {
         this.userChoice = userChoice;
+        this.generate = generate;
     }
 
-    public String getUserChoice() {
+    String getUserChoice() {
         return userChoice;
+    }
+
+    boolean isGenerated() {
+        return generate.equals("generate");
     }
 }
