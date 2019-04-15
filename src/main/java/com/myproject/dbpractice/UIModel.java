@@ -2,7 +2,7 @@ package com.myproject.dbpractice;
 
 /**
  * Created by Michał Krzyżak
- *  15.4.2019
+ * 15.4.2019
  **/
 
 class UIModel {
@@ -10,5 +10,9 @@ class UIModel {
 
     UIModel(String userChoice) {
         this.userChoice = userChoice;
+    }
+
+    public String getUserChoice() {
+        return userChoice;
     }
 }

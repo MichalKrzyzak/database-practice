@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 /**
  * Created by Michał Krzyżak
- *  15.4.2019
+ * 15.4.2019
  **/
 
 public class Connector {
@@ -18,7 +18,7 @@ public class Connector {
         entityManager = entityManagerFactory.createEntityManager();
     }
 
-    void disconnect(){
+    void disconnect() {
         entityManager.close();
         entityManagerFactory.close();
     }

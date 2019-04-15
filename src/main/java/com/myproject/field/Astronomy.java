@@ -5,11 +5,11 @@ import javax.persistence.Id;
 
 /**
  * Created by Michał Krzyżak
- *  11.4.2019
+ * 11.4.2019
  **/
 
 @Entity
-public class Astronomy {
+public class Astronomy implements Field {
     @Id
     private long numberOfStudents;
     private long numberOfTeachers;

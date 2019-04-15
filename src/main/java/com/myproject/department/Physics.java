@@ -11,7 +11,7 @@ import javax.persistence.Id;
  **/
 
 @Entity
-public class Physics {
+public class Physics implements Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

@@ -9,7 +9,7 @@ import javax.persistence.Id;
  **/
 
 @Entity
-public class Programming {
+public class Programming implements Field {
     @Id
     private long numberOfStudents;
     private long numberOfTeachers;

@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ComputerScience {
+public class ComputerScience implements Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
