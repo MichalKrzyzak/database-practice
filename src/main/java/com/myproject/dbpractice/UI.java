@@ -13,13 +13,13 @@ public class UI {
     public void run() {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to University of Java!");
-        String userInput = "";
+        String userInput;
 
         do {
-            try {
-                System.out.println("Please pick one function to continue:\n1 - Add student\n2 - Add teacher\n3 - Add field\n4 - Add department\nIf you want to generate data please add \"generate\" after number. If not, please add \"manual\" after number.\nEnter \"exit\" or \"q\" to quit.");
-                userInput = input.nextLine().toLowerCase();
+            System.out.println("Please pick one function to continue:\n1 - Add student\n2 - Add teacher\nIf you want to generate data please add \"generate\" after number. If not, please add \"manual\" after number.\nEnter \"exit\" or \"q\" to quit.");
+            userInput = input.nextLine().toLowerCase();
 
+            try {
                 if (!(userInput.equals("exit") || userInput.equals("q"))) {
                     List<String> userInputList = Arrays.asList(userInput.split("[-, ]"));
                     UIModel uiModel = new UIModel(userInputList.get(0), userInputList.get(1));

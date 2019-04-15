@@ -12,7 +12,7 @@ import javax.persistence.Persistence;
  * 15.4.2019
  **/
 
-public class Pusher {
+class Pusher {
     private EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;
 
@@ -26,7 +26,7 @@ public class Pusher {
         entityManagerFactory.close();
     }
 
-    public void pushToDatabase(Student student) {
+    void pushToDatabase(Student student) {
         openConnection();
         entityManager.getTransaction().begin();
         entityManager.persist(student);
@@ -34,7 +34,7 @@ public class Pusher {
         closeConnection();
     }
 
-    public void pushToDatabase(Teacher teacher) {
+    void pushToDatabase(Teacher teacher) {
         openConnection();
         entityManager.getTransaction().begin();
         entityManager.persist(teacher);

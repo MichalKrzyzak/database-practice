@@ -20,44 +20,44 @@ public class Teacher {
     private String identityNumber;
     private String subject;
 
-    static class TeacherBuilder {
+    public static class TeacherBuilder {
         private String firstName;
         private String lastName;
         private String peselNumber;
         private String identityNumber;
         private String subject;
 
-        TeacherBuilder firstName(String firstName) {
+        public TeacherBuilder firstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        TeacherBuilder lastName(String lastName) {
+        public TeacherBuilder lastName(String lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        TeacherBuilder peselNumber(String peselNumber) {
+        public TeacherBuilder peselNumber(String peselNumber) {
             this.peselNumber = peselNumber;
             return this;
         }
 
-        TeacherBuilder identityNumber(String identityNumber) {
+        public TeacherBuilder identityNumber(String identityNumber) {
             this.identityNumber = identityNumber;
             return this;
         }
 
-        TeacherBuilder subject(String subject) {
+        public TeacherBuilder subject(String subject) {
             this.subject = subject;
             return this;
         }
 
-        Teacher build() {
+        public Teacher build() {
             return new Teacher(this);
         }
     }
 
-    Teacher(TeacherBuilder teacherBuilder) {
+    private Teacher(TeacherBuilder teacherBuilder) {
         this.firstName = teacherBuilder.firstName;
         this.lastName = teacherBuilder.lastName;
         this.peselNumber = teacherBuilder.peselNumber;

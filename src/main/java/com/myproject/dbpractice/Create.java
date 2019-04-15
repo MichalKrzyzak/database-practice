@@ -1,6 +1,7 @@
-package com.myproject.entities;
+package com.myproject.dbpractice;
 
-import com.myproject.dbpractice.Pusher;
+import com.myproject.entities.Student;
+import com.myproject.entities.Teacher;
 import com.myproject.generator.Data;
 import com.myproject.generator.IdentityNumber;
 import com.myproject.generator.Pesel;
@@ -9,21 +10,21 @@ import java.util.Scanner;
 
 /**
  * Created by Michał Krzyżak
- *  15.4.2019
+ * 15.4.2019
  **/
 
-public class Create {
+class Create {
     private final Pusher pusher = new Pusher();
     private final Data data = new Data();
     private final Pesel pesel = new Pesel();
     private final IdentityNumber identityNumber = new IdentityNumber();
     private final Scanner input = new Scanner(System.in);
 
-    public void verifyCreation(String userChoice, boolean doGenerate) {
+    void verifyCreation(String userChoice, boolean isGenerated) {
         if (userChoice.equals("1")) {
             Student student;
 
-            if (doGenerate) {
+            if (isGenerated) {
                 student = generateStudent();
             } else {
                 student = manualStudent();
@@ -33,17 +34,13 @@ public class Create {
         } else if (userChoice.equals("2")) {
             Teacher teacher;
 
-            if (doGenerate) {
+            if (isGenerated) {
                 teacher = generateTeacher();
             } else {
                 teacher = manualTeacher();
             }
 
             pusher.pushToDatabase(teacher);
-        } else if (userChoice.equals("3")) {
-
-        } else if (userChoice.equals("4")) {
-
         } else {
             System.out.println("Wrong input!");
         }

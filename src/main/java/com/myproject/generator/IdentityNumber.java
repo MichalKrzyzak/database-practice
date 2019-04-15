@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * Created by Michał Krzyżak
- *  15.4.2019
+ * 15.4.2019
  **/
 
 public class IdentityNumber {

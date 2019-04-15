@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * Created by Michał Krzyżak
- *  15.4.2019
+ * 15.4.2019
  **/
 
 public class Pesel {
@@ -44,7 +44,7 @@ public class Pesel {
                 b = r.nextInt(10);
             } else if (longerMonths.contains(getMonth())) {
                 b = 0;
-            } else if (a==2 && getMonth().equals("02")) {
+            } else if (a == 2 && getMonth().equals("02")) {
                 b = r.nextInt(9);
             } else if (a == 2 && !getMonth().equals("02")) {
                 b = r.nextInt(10);

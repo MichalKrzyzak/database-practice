@@ -1,7 +1,5 @@
 package com.myproject.dbpractice;
 
-import com.myproject.entities.Create;
-
 /**
  * Created by Michał Krzyżak
  * 15.4.2019
