@@ -1,4 +1,4 @@
-package com.myproject.dbpractice.field;
+package com.myproject.field;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

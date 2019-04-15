@@ -1,12 +1,12 @@
-package com.myproject.dbpractice.teacher;
+package com.myproject.teacher;
+
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 /**
  * Created by Michał Krzyżak
  * 11.4.2019
  **/
-
-import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 public class Teacher {

@@ -1,4 +1,4 @@
-package com.myproject.dbpractice.department;
+package com.myproject.department;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

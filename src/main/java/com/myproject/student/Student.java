@@ -1,11 +1,11 @@
-package com.myproject.dbpractice.student;
+package com.myproject.student;
+
+import javax.persistence.*;
 
 /**
  * Created by Michał Krzyżak
  * 11.4.2019
  **/
-
-import javax.persistence.*;
 
 @Entity
 public class Student {
