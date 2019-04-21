@@ -1,11 +1,14 @@
 package com.myproject.dbpractice;
 
+import com.myproject.entities.Salary;
 import com.myproject.entities.Student;
 import com.myproject.entities.Teacher;
 import com.myproject.generator.Data;
 import com.myproject.generator.IdentityNumber;
 import com.myproject.generator.Pesel;
 
+import java.math.BigDecimal;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -21,28 +24,32 @@ class Create {
     private final Scanner input = new Scanner(System.in);
 
     void verifyCreation(String userChoice, boolean isGenerated) {
-        if (userChoice.equals("1")) {
-            Student student;
+        switch (userChoice) {
+            case "1":
+                Student student;
 
-            if (isGenerated) {
-                student = generateStudent();
-            } else {
-                student = manualStudent();
-            }
+                if (isGenerated) {
+                    student = generateStudent();
+                } else {
+                    student = manualStudent();
+                }
 
-            pusher.pushToDatabase(student);
-        } else if (userChoice.equals("2")) {
-            Teacher teacher;
+                pusher.pushToDatabase(student);
+                break;
+            case "2":
+                Teacher teacher;
 
-            if (isGenerated) {
-                teacher = generateTeacher();
-            } else {
-                teacher = manualTeacher();
-            }
+                if (isGenerated) {
+                    teacher = generateTeacher();
+                } else {
+                    teacher = manualTeacher();
+                }
 
-            pusher.pushToDatabase(teacher);
-        } else {
-            System.out.println("Wrong input!");
+                pusher.pushToDatabase(teacher);
+                break;
+            default:
+                System.out.println("Wrong input!");
+                break;
         }
     }
 
@@ -83,6 +90,7 @@ class Create {
                 .identityNumber(identityNumber.getIdentity())
                 .peselNumber(pesel.getPesel())
                 .subject(getSubject())
+                .salary(generateSalary())
                 .build();
     }
 
@@ -102,8 +110,29 @@ class Create {
                 .identityNumber(identityNumber)
                 .peselNumber(peselNumber)
                 .subject(getSubject())
+                .salary(manualSalary())
                 .build();
 
+    }
+
+    private Salary generateSalary() {
+        Random random = new Random();
+        return new Salary.SalaryBuilder()
+                .grossAmount(BigDecimal.valueOf(random.nextInt(10000) + 3000))
+                .currenct("PLN")
+                .build();
+    }
+
+    private Salary manualSalary() {
+        System.out.println("Please enter teacher's gross salary:");
+        String grossAmount = input.nextLine();
+        System.out.println("Please enter currency of above salary:");
+        String currency = input.nextLine();
+
+        return new Salary.SalaryBuilder()
+                .grossAmount(BigDecimal.valueOf(Long.parseLong(grossAmount)))
+                .currenct(currency)
+                .build();
     }
 
     private String getFieldOfStudy() {

@@ -12,34 +12,23 @@ import javax.persistence.Persistence;
  * 15.4.2019
  **/
 
-class Pusher {
-    private EntityManagerFactory entityManagerFactory;
+class Pusher implements Connecter, Disconnecter {
+    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabaseFirstProgram");
     private EntityManager entityManager;
 
-    private void openConnection() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("myDatabaseFirstProgram");
-        entityManager = entityManagerFactory.createEntityManager();
-    }
-
-    private void closeConnection() {
-        entityManager.close();
-        entityManagerFactory.close();
-    }
-
     void pushToDatabase(Student student) {
-        openConnection();
+        entityManager = connect(entityManagerFactory);
         entityManager.getTransaction().begin();
         entityManager.persist(student);
         entityManager.getTransaction().commit();
-        closeConnection();
+        disconnect(entityManagerFactory, entityManager);
     }
 
     void pushToDatabase(Teacher teacher) {
-        openConnection();
+        entityManager = connect(entityManagerFactory);
         entityManager.getTransaction().begin();
         entityManager.persist(teacher);
         entityManager.getTransaction().commit();
-        closeConnection();
+        disconnect(entityManagerFactory, entityManager);
     }
-
 }

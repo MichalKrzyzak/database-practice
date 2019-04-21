@@ -19,43 +19,8 @@ public class Teacher {
     private String peselNumber;
     private String identityNumber;
     private String subject;
-
-    public static class TeacherBuilder {
-        private String firstName;
-        private String lastName;
-        private String peselNumber;
-        private String identityNumber;
-        private String subject;
-
-        public TeacherBuilder firstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        public TeacherBuilder lastName(String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-        public TeacherBuilder peselNumber(String peselNumber) {
-            this.peselNumber = peselNumber;
-            return this;
-        }
-
-        public TeacherBuilder identityNumber(String identityNumber) {
-            this.identityNumber = identityNumber;
-            return this;
-        }
-
-        public TeacherBuilder subject(String subject) {
-            this.subject = subject;
-            return this;
-        }
-
-        public Teacher build() {
-            return new Teacher(this);
-        }
-    }
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Salary salary;
 
     private Teacher(TeacherBuilder teacherBuilder) {
         this.firstName = teacherBuilder.firstName;
@@ -63,6 +28,15 @@ public class Teacher {
         this.peselNumber = teacherBuilder.peselNumber;
         this.identityNumber = teacherBuilder.identityNumber;
         this.subject = teacherBuilder.subject;
+        this.salary = teacherBuilder.salary;
+    }
+
+    public Salary getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Salary salary) {
+        this.salary = salary;
     }
 
     public long getId() {
@@ -111,5 +85,48 @@ public class Teacher {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public static class TeacherBuilder {
+        private String firstName;
+        private String lastName;
+        private String peselNumber;
+        private String identityNumber;
+        private String subject;
+        private Salary salary;
+
+        public TeacherBuilder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public TeacherBuilder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public TeacherBuilder peselNumber(String peselNumber) {
+            this.peselNumber = peselNumber;
+            return this;
+        }
+
+        public TeacherBuilder identityNumber(String identityNumber) {
+            this.identityNumber = identityNumber;
+            return this;
+        }
+
+        public TeacherBuilder subject(String subject) {
+            this.subject = subject;
+            return this;
+        }
+
+        public TeacherBuilder salary(Salary salary) {
+            this.salary = salary;
+            return this;
+        }
+
+        public Teacher build() {
+            return new Teacher(this);
+        }
     }
 }

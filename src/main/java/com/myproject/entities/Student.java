@@ -20,43 +20,6 @@ public class Student {
     private String identityNumber;
     private String fieldOfStudy;
 
-    public static class StudentBuilder {
-        private String firstName;
-        private String lastName;
-        private String peselNumber;
-        private String identityNumber;
-        private String fieldOfStudy;
-
-        public StudentBuilder firstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        public StudentBuilder lastName(String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-        public StudentBuilder peselNumber(String peselNumber) {
-            this.peselNumber = peselNumber;
-            return this;
-        }
-
-        public StudentBuilder identityNumber(String identityNumber) {
-            this.identityNumber = identityNumber;
-            return this;
-        }
-
-        public StudentBuilder fieldOfStudy(String fieldOfStudy) {
-            this.fieldOfStudy = fieldOfStudy;
-            return this;
-        }
-
-        public Student build() {
-            return new Student(this);
-        }
-    }
-
     private Student(StudentBuilder studentBuilder) {
         this.firstName = studentBuilder.firstName;
         this.lastName = studentBuilder.lastName;
@@ -111,5 +74,42 @@ public class Student {
 
     public void setFieldOfStudy(String fieldOfStudy) {
         this.fieldOfStudy = fieldOfStudy;
+    }
+
+    public static class StudentBuilder {
+        private String firstName;
+        private String lastName;
+        private String peselNumber;
+        private String identityNumber;
+        private String fieldOfStudy;
+
+        public StudentBuilder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public StudentBuilder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public StudentBuilder peselNumber(String peselNumber) {
+            this.peselNumber = peselNumber;
+            return this;
+        }
+
+        public StudentBuilder identityNumber(String identityNumber) {
+            this.identityNumber = identityNumber;
+            return this;
+        }
+
+        public StudentBuilder fieldOfStudy(String fieldOfStudy) {
+            this.fieldOfStudy = fieldOfStudy;
+            return this;
+        }
+
+        public Student build() {
+            return new Student(this);
+        }
     }
 }
